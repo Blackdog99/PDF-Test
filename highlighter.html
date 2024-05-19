@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .highlight { background-color: 'yellow'; }
+    </style>
+</head>
+<body>
+    <p id="text">{}</p>
+    <script>
+        let words = document.getElementById("text").innerText.split(' ');
+        let index = 0;
+        function highlightNext() {
+            if (index < words.length) {
+                let highlightedText = words.slice(0, index).join(' ') + 
+                    ' <span class="highlight">' + words[index] + '</span> ' + 
+                    words.slice(index + 1).join(' ');
+                document.getElementById("text").innerHTML = highlightedText;
+                index++;
+            }
+        }
+        setInterval(highlightNext, 500);  // Adjust the interval based on speech rate
+    </script>
+</body>
+</html>
